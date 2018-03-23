@@ -109,7 +109,7 @@ int & vector_t::operator [](std::size_t index)
 {
 	return elements_[index];
 }
-
+ 
 int vector_t::operator [](std::size_t index) const
 {
 	return elements_[index];
