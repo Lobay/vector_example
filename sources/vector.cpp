@@ -34,7 +34,7 @@ vector_t& vector_t::operator=(vector_t const& other)
 bool vector_t::operator ==(vector_t const & other) const
 {
 	if (this -> size_ == other.size_) {
-		for (unsigned int i = 0; i < size; i++){
+		for (unsigned int i = 0; i < size_; i++){
 		 if (this->elements_[i] != other.elements_[i]) {
         return false;
         break;
@@ -60,7 +60,7 @@ std::size_t vector_t::size() const
 
 std::size_t vector_t::capacity() const
 {
-    return capasity_;
+    return capacity_;
     return 0;
 }
 
@@ -69,12 +69,12 @@ void vector_t::push_back(int value)
 	if (size_ == 0){
 		size_ = 1;
 		capacity_ = 1;
-		elements_ = new int [capasity_];
+		elements_ = new int [capacity_];
 		elements_[0] = value;
 	}
 	else if (size_ == capacity_)
 	{
-		capasity_ = capasity_ *2;
+		capacity_ = capacity_ *2;
 		int* elements1 = new int [capacity_];
 		for(unsigned int i = 0; i < size_; i++)
 			elements1[i] = elements_[i];
@@ -97,7 +97,7 @@ void vector_t::pop_back()
 		for (unsigned int i = 0; i < size_; i++)
 			elements1[i] = elements_[i];
 	delete[] elements_;
-	capasity_ = capasity_ / 2;
+	capacity_ = capacity_ / 2;
 	elements_ = new int[capasity_];
 	for (unsigned int i = 0; i < size_; i++)
 		elements_[i] = elements1[i];
